@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    * {
+        margin: 0px;
+        padding : 0px;
+    }
+    .container{
+        width : 100%;
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+    .wrapper{
+        width: 80%;
+        min-width: 600px;
+        background-color: black;
+        height: 100vh;
+    }
+    .wrapper div {
+        box-sizing: border-box; /*border 도 포함해서 사이즈로 잡아라 */
+    }
+    .header {
+        height: 10vh;
+    }
+    .pagecenter {
+        height: 80vh;
+        display: flex;
+    }
+    .menu {
+        width: 25%;
+        background: -webkit-linear-gradient(left, #4c4c4c 12%, #595959 12%, #4c4c4c 12%, #595959 12%, #666666 25%, #595959 30%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 91%); /* Chrome10-25,Safari5.1-6 */
+    }
+    .main {
+        width : 75%;
+        background: -webkit-linear-gradient(left, #4c4c4c 12%,#595959 12%,#4c4c4c 12%,#595959 12%,#666666 25%,#595959 30%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 91%); /* Chrome10-25,Safari5.1-6 */
+    }
+    .footer {
+        height: 10vh;
+    }
+
+</style>
+
+<div class="container">
+    <div class="wrapper">
+        <div class="header">
+            Header
+        </div>
+        <div class="pagecenter">
+            <div class="menu">
+                Menu
+            </div>
+            <div class="main">
+                Main
+            </div>
+        </div>
+        <div class="footer">
+            Footer
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

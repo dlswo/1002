@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .wrapper {
+        color: white;
+        background-color: forestgreen;
+        width: 100%;
+        display: grid;
+        grid-template:
+                'header header2'
+                'menu sub'
+                'main sub'
+                'footer sub';
+    }
+    .f1 {
+        grid-area: header;
+        height: 15vh;
+    }
+    .f2 {
+        grid-area: menu;
+        height: 20vh;
+    }
+    .f3 {
+        grid-area: main;
+        height: 50vh;
+    }
+    .f4 {
+        grid-area: footer;
+        height: 15vh;
+    }
+    .f5 {
+        grid-area: header2;
+        height: 10vh;
+    }
+
+    @media only screen and (max-width: 800px) {
+
+        .wrapper {
+            display: grid;
+            grid-template:
+                    'header'
+                    'header2'
+                    'menu'
+                    'sub'
+                    'main'
+                    'main2'
+                    'footer';
+        }
+        .facet {
+            background-color: black;
+        }
+        .f2 {
+            height: 50px;
+        }
+
+        .f7 {
+            grid-area: main2;
+        }
+    }
+
+</style>
+
+<div class="container">
+
+    <div class="wrapper">
+
+        <div class="facet f1"><h1>Area 1</h1></div>
+        <div class="facet f2"><h1>Area 2</h1></div>
+        <div class="facet f3"><h1>Area 3</h1></div>
+        <div class="facet f4"><h1>Area 4</h1></div>
+        <div class="facet f5"><h1>Area 5</h1></div>
+        <div class="facet f6"><h1>Area 6</h1></div>
+        <div class="facet f7"><h1>Area 7</h1></div>
+        <div class="facet f8"><h1>Area 8</h1></div>
+
+    </div>
+
+
+</div>
+
+</body>
+</html>

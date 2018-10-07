@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap; /* 창 크기를 줄이면 자동으로 밑으로 내려감*/
+    }
+
+    ul li {
+        list-style: none;
+        width: 150px;
+        height: 150px;
+        background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+        border-radius: 100px;
+        margin: 2px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 150px;
+    }
+
+    ul li:nth-child(even) {
+        background: -webkit-linear-gradient(top, #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* Chrome10-25,Safari5.1-6 */
+
+    }
+
+    .cash ul li input {
+        width: 100px;
+        height: 100px;
+        margin: 25px;
+        border-radius: 25px;
+    }
+</style>
+
+<div class="container">
+
+    <div class="wrapper">
+        <div class="cash" onclick="clickButton(event)">
+            <ul>
+                <li><input type="image" src="img/100.jpg" value="100"></li>
+                <li><input type="image" src="img/500.jpg" value="500"></li>
+                <li><input type="image" src="img/1000.jpg" value="1000"></li>
+            </ul>
+            <ul>
+                <li><input type="image" src="img/kingca.jpg" value="-1000"></li>
+                <li><input type="image" src="img/cider.jpg" value="-1500"></li>
+                <li><input type="image" src="img/mountaindew.jpg" value="-2000"></li>
+            </ul>
+            <ul>
+                <li><input type="image" src="img/icetea.jpg" value="-2500"></li>
+                <li><input type="image" src="img/lemonade.jpg" value="-3000"></li>
+                <li><input type="image" src="img/tejava.jpg" value="-500"></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+<div>
+    <ul>
+        <li><input type="text" id="change" value=""></li>
+    </ul>
+</div>
+
+
+<script>
+
+    var resultObj = document.querySelector("#change");
+
+    var sum = 0;
+
+    function clickButton(event) {
+
+        var val = event.target.value;
+
+        console.dir(event)
+        console.log(val);
+        sum += parseInt(val)
+        resultObj.value = sum;
+        if (parseInt(resultObj.value) < 0) {
+            resultObj.value = '잔액이 부족합니다' + sum;
+            return;
+        }
+
+    }
+
+
+</script>
+
+</body>
+</html>

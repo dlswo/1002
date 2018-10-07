@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .items{
+        border : 1px solid blue;
+    }
+    .items ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;      /* 창 크기를 줄이면 자동으로 밑으로 내려감*/
+    }
+    .items ul li {
+        list-style: none;
+        width : 150px;
+        height: 210px;
+        background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
+        border-radius: 50px;
+        margin: 2px;
+    }
+    .items ul li:nth-child(even){
+        background: -webkit-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Chrome10-25,Safari5.1-6 */
+    }
+    img{
+        width: 100px;
+        height : 160px;
+        margin : 25px;
+        border-radius: 25px;
+    }
+</style>
+
+<div class="items">
+    <ul>
+        <li><img src="poster/m1_1.jpg"> </li>
+        <li><img src="poster/m2_1.jpg"> </li>
+        <li><img src="poster/m3_1.jpg"> </li>
+        <li><img src="poster/m4_1.jpg"> </li>
+    </ul>
+</div>
+
+<div class="items">
+    <ul>
+        <li><img src="poster/m5_1.jpg"> </li>
+        <li><img src="poster/m6_1.jpg"> </li>
+        <li><img src="poster/m7_1.jpg"> </li>
+        <li><img src="poster/m8_1.jpg"> </li>
+    </ul>
+</div>
+
+</body>
+</html>

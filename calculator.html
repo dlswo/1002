@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .calculator {
+        min-width: 200px;
+        min-height: 300px;
+        background-image: linear-gradient(to bottom, #dacdb1 11%, #f0e8d8 56%);
+        box-shadow: 0 0 65px #cdbe9f inset, 0 0 20px #beae8c inset, 10px 10px 5px #777;
+        font-family: sans-serif;
+    }
+    .displayPart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .displayPart input {
+        margin: 10px;
+        border: 1px dotted #dacdb1;
+        box-shadow: 10px 10px 5px #777;
+        font-size: 2em;
+        width: 70%;
+        border-radius: 20px;
+        text-align: right;
+        padding-right: 10px;
+    }
+    .buttonPart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .row {
+        margin: auto;
+        display: flex;
+        color: white;
+    }
+    .row div {
+        width: 50px;
+        height: 50px;
+        background-color: #4c4c4c;
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight : bold;
+        border-radius: 25px;
+    }
+</style>
+
+
+<div class="container">
+
+    <div class="calculator">
+        <div class="displayPart">
+            <input type="text" id="result" value="" readonly>
+        </div>
+        <div class="buttonPart" onclick="clickButton(event)">
+            <div class="row">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>+</div>
+            </div>
+            <div class="row">
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>-</div>
+            </div>
+            <div class="row">
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>*</div>
+            </div>
+            <div class="row">
+                <div>=</div>
+                <div>0</div>
+                <div>C</div>
+                <div>/</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    var resultObj = document.querySelector("#result");
+
+    var data = {
+        num1 : 0,
+        num2 : 0,
+        oper : null
+    };
+
+    function clickButton(event) {
+
+        var value = event.target.innerHTML;
+        console.log("click.......");
+        console.log(value);
+
+        function calc(num1,num2,str) {
+            if(str === '+'){
+                return num1 + num2;
+            }
+            else if(str === '-'){
+                return num1 - num2;
+            }
+            else if(str === '*'){
+                return num1 * num2;
+            }
+            else if(str === '/'){
+                return num1 / num2;
+            }
+        }
+
+        function setValue(val){ // 누른것 설정
+            resultObj.value = val;
+        }
+
+        function setNums(str) { // 숫자 설정
+            if(data.num1 == 0){
+                data.num1 = parseInt(str);
+            }else{
+                data.num2 = parseInt(str);
+            }
+        }
+
+        if (value === 'C'){  //C를 누르면...
+            setValue('');
+            data.num1 = 0;
+            data.num2 = 0;
+            data.oper = null;
+            return;
+        }
+
+
+        var parseResult = parseInt(value);
+        console.log(parseResult)
+
+        if(isNaN(parseResult)) { // calc버튼 누를때
+
+            if (value === '=') {
+
+                setNums(resultObj.value);
+                data.num1 = calc(data.num1,data.num2,data.oper);
+                data.num2 = 0;
+                data.oper = null;
+                setValue(data.num1);
+                console.log(data);
+                return;
+            }
+
+            setNums(resultObj.value);
+            if (data.oper == null) {
+                setValue('');
+            }else{
+                // data.num1 = data.num1 + data.num2;
+                data.num1 = calc(data.num1,data.num2,data.oper);
+                data.num2 = 0;
+                setValue(data.num1);
+            }
+
+            data.oper = value;
+
+        }else{ // 숫자버튼 누를때
+            if(resultObj.value == calc(data.num1,data.num2,data.oper)){
+                resultObj.value = '';
+            }
+            resultObj.value += value;
+        }
+
+        console.log(data);
+
+    }
+
+</script>
+
+</body>
+</html>
